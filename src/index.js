@@ -1,7 +1,7 @@
 export default function stringInject(str, data) {
     if (typeof str === 'string' && (data instanceof Array)) {
 
-        return str.replace(/({\d})/g, function(i) {
+        return str.replace(/({\d+})/g, function(i) {
             return data[i.replace(/{/, '').replace(/}/, '')];
         });
     } else if (typeof str === 'string' && (data instanceof Object)) {
